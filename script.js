@@ -1,48 +1,56 @@
-// As a user, I want to play Rock, Paper, Scissors against an automated opponent.
 
-// As a user, I can enter R, P, or S to signify my choice of rock, paper, or scissors.
+const btn = document.getElementById('playBtn');
 
-// As a user, I expect the computer to choose R, P, or S in return.
+btn.addEventListener(
+    'click',
+    ()=> {
+        rps();
+    }
+    );
 
-// As a user, I want the option to play again whether I win or lose.
 
-// As a user, I want to see my total wins, ties, and losses after each round.
-var wins = 0;
-var ties = 0;
-var losses = 0;
+let wins = 0;
+let ties = 0;
+let losses = 0;
 
-var rps = (p, c) => {
-    var p = prompt('Please enter r for rock, p for paper, or s for scissors');
+const rps = (player, computer) => {
+    player = prompt('Please enter r for rock, p for paper, or s for scissors').toLowerCase;
 
-    var comp = Math.floor(Math.random() * 3);
+    let comp = Math.floor(Math.random() * 3);
+    let msg = "rock"
 
     if (comp === 1) {
-        c = 'r'
+        computer = 'r'
+        msg = "ROCK";
     } else if (comp === 2) {
-        c = 'p'
+        computer = 'p'
+        msg = "PAPER";
     } else {
-        c = 's'
+        computer = 's'
+        msg = "SCISSORS";
     };
 
-    var rules = { r: 's', p: 'r', s: 'p' };
+    const rules = { r: 's', p: 'r', s: 'p' };
 
-    if (c === rules[p]) {
+    if (computer === rules[player]) {
         wins += 1;
-        alert('You Won!');
-    } else if (p === rules[c]) {
+        alert(`Computer chose ${msg} - You Won! 🥳`);
+    } else if (player === rules[computer]) {
         losses += 1;
-        alert('You lost :\'(');
-    } else {
+        alert(`Computer chose ${msg} - You lost 🫠`);
+    } else if (player === computer) {
         ties += 1;
-        alert('You tied!');
+        alert(`Computer chose ${msg} - You tied! 😮‍💨`);
+    } else {
+        alert('Game only accepts letters r p or s');
+        rps();
     }
-    var conf = confirm('total wins:' + wins + ' total losses:' + losses + ' total ties:' + ties + ' Would you like to play again?');
+    const conf = confirm('total wins: ' + wins + '\ntotal losses: ' + losses + '\ntotal ties:' + ties + '\nWould you like to play again?');
     if (conf) {
         rps();
     } else {
-        alert('Thanks for playing! Goodbye')
+        alert('Thanks for playing!' + '\nYou won ' + wins + ' time(s)!' + '\nGoodbye')
     };
 
 }
 
-rps();

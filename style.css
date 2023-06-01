@@ -1,0 +1,45 @@
+h1{
+  color: #CD4631;
+  font-size: clamp(3rem, 4vw, 5rem);
+  text-align: center;
+}
+
+h2{
+  background-color: #ccff1e;
+    background-image: linear-gradient(45deg, #ccff1e, #735751);
+    background-size: 100%;
+    -webkit-background-clip: text;
+    -moz-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent; 
+    -moz-text-fill-color: transparent;
+    background-image: conic-gradient(#ccff1e, #ccff1e, #735751, #a78a7f, #bf4342, #ccff1e, #8c1c13, #ccff1e);
+    font-size: clamp(4rem, 4vw, 6rem);
+    text-align: center;
+}
+
+body{
+  background-color: #034732;
+}
+
+div{
+  display: flex;
+  justify-content: center;
+}
+
+button{
+  padding: 30px 50px;
+  background-image: linear-gradient(45deg, #034732 50%, #8c1c13 50%);
+  background-size: 270%;
+  background-repeat: repeat;
+  background-position: top right;
+  animation: button-animation 0.65s 0.15s ease-out forwards;
+  display: table;
+  border-radius: 0.5em;
+  text-decoration: none;
+  box-shadow: 7px 4px 20px 1px rgba(0, 0, 0, 0.562);
+  cursor: pointer;
+  margin-bottom: 70px;
+  color: #eaf8ba;
+  font-size: clamp(3rem, 4vw, 5rem);
+}
